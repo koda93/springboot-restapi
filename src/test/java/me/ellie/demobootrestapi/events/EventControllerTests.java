@@ -87,8 +87,9 @@ public class EventControllerTests {
                 .andDo(document("create-event",
                         links(
                                 linkWithRel("self").description("link to self"),
-                                linkWithRel("query-events").description("link to query-events"),
-                                linkWithRel("update-event").description("link to update-events")
+                                linkWithRel("query-events").description("link to query events"),
+                                linkWithRel("update-event").description("link to update events an existing event"),
+                                linkWithRel("profile").description("link to update-events")
                                 ),
                         requestHeaders(
                                 headerWithName(HttpHeaders.ACCEPT).description("accept header"),
@@ -127,7 +128,8 @@ public class EventControllerTests {
                                 fieldWithPath("eventStatus").description("event status"), // response에 추가된 것
                                 fieldWithPath("_links.self.href").description("event status"),
                                 fieldWithPath("_links.query-events.href").description("link to query event list"),
-                                fieldWithPath("_links.update-event.href").description("link to update existing event")
+                                fieldWithPath("_links.update-event.href").description("link to update existing event"),
+                                fieldWithPath("_links.profile.href").description("link to profile")
                         )
                 ))
         ;
