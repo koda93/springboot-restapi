@@ -57,16 +57,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        ;
 //    }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .anonymous()
-                    .and()
-                .formLogin()
-                    .and()
-                .authorizeRequests()
-                    .mvcMatchers(HttpMethod.GET, "/api/**").authenticated()
-                    .anyRequest().authenticated();
-
-    }
+    // spring security form 인증 설정 제거
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .anonymous()
+//                    .and()
+//                .formLogin()
+//                    .and()
+//                .authorizeRequests()
+//                    .mvcMatchers(HttpMethod.GET, "/api/**").authenticated()
+//                    .anyRequest().authenticated();
+//
+//    }
 }

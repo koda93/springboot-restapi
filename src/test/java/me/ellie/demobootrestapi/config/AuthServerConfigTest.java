@@ -25,8 +25,8 @@ public class AuthServerConfigTest extends BaseControllerTest {
     @TestDescription("인증 토큰을 발급 받는 테스트")
     public void getAuthToken() throws Exception{
         // Given
-        String username = "test@test.com";
-        String password = "koda";
+        String username = "ellie@test.com";
+        String password = "ellie";
         Account account = Account.builder()
                 .email(username)
                 .password(password)
@@ -38,7 +38,7 @@ public class AuthServerConfigTest extends BaseControllerTest {
         String clientSecret = "pass";
 
         this.mockMvc.perform(post("/oauth/token")
-                    .with(httpBasic(clientId, clientSecret))
+                    .with(httpBasic(clientId, clientSecret)) // Basic OAuth Header
                     .param("username", username)
                     .param("password", password)
                     .param("grant_type", "password"))
